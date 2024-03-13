@@ -9,7 +9,7 @@ This code can be used to reproduce the sparsity analysis in the paper:
 
 Download the .zip file and extract it in your preferred folder. You do not need to install files, as the dependencies are added (and removed) automatically when running the main script. 
 
-The user must have the Wavelet Toolbox installed in Matlab. 
+OBS: The user must have the Wavelet Toolbox installed in Matlab. 
 
 **3. EXAMPLE OF USAGE**
   To reproduce the sparsity analysis in Figure 6 of the manuscript, run the command: 
@@ -57,12 +57,11 @@ Your questions, suggestions, and feedback can help improve the quality of this s
 
 **7. LEGAL INFORMATION**
 
-Copyright 2019 Elias Zea
+Copyright 2024 Elias Zea, Marco Laudato, Joakim Andén
 
-This software was written by Elias Zea, and it was created during a postdoctoral period at the Marcus Wallenberg Laboratory for Sound and Vibration Research, KTH Royal Institute of Technology. 
+This software was written by Elias Zea. 
 
-RIRIS is free software. You can redistribute it and/or modify it under the
-terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version. If not stated otherwise, this applies to all files contained in this package and its sub-directories. 
+The provided code is free software. You can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version. If not stated otherwise, this applies to all files contained in this package and its sub-directories. 
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
