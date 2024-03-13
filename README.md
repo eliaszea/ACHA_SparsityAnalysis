@@ -9,6 +9,8 @@ This code can be used to reproduce the sparsity analysis in the paper:
 
 Download the .zip file and extract it in your preferred folder. You do not need to install files, as the dependencies are added (and removed) automatically when running the main script. 
 
+The user must have the Wavelet Toolbox installed in Matlab. 
+
 **3. EXAMPLE OF USAGE**
   To reproduce the sparsity analysis in Figure 6 of the manuscript, run the command: 
 
@@ -18,20 +20,13 @@ Download the .zip file and extract it in your preferred folder. You do not need 
   A table including the l1-norm of the 20.0000 largest coefficients, corresponding 
   to Table I in the manuscript, is output in the Command Window. See below. 
 
-This is how the interpolation results look like: 
+This is the output of Figure 6:
 
 ![Figure 6](https://github.com/eliaszea/ACHA_SparsityAnalysis/blob/main/Fig6.jpg)
 
 This is what the Table looks like in the Command Window: 
 
-L1 Norms:
-                 Daubechies45    Meyer     Wave atoms    Curvelets    Shearlets    Boostlets
-                 ____________    ______    __________    _________    _________    _________
-
-    Field (a)        124.3       127.32      86.682       82.912       124.53       50.416  
-    Field (b)       124.89       129.89      94.756       91.501       129.81       52.511  
-    Field (c)       124.37       124.61      99.879       81.293       119.61       46.102  
-    Field (d)       130.86       132.94      112.29       108.51        137.1       52.545  
+![Table 1](https://github.com/eliaszea/ACHA_SparsityAnalysis/blob/main/Table1.jpg)
 
 **4. DEPENDENCIES**
 
