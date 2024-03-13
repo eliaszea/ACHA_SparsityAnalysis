@@ -20,7 +20,7 @@ Download the .zip file and extract it in your preferred folder. You do not need 
 
 This is how the interpolation results look like: 
 
-![Figure 6](https://github.com/eliaszea/ACHA_SparsityAnalysis/blob/main/Fig6.pdf)
+![Figure 6](https://github.com/eliaszea/ACHA_SparsityAnalysis/blob/main/Fig6.jpg)
 
 This is what the Table looks like in the Command Window: 
 
