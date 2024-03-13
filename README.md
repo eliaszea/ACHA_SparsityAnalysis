@@ -35,8 +35,8 @@ L1 Norms:
 
 **4. DEPENDENCIES**
 
-      Folders:    'Datasets'          measured acoustic fields in three rooms[^1]
-                  'Toolboxes'         curvelets, wave atoms, and shearlets 
+Folders:    'Datasets'          measured acoustic fields in three rooms[^1]
+            'Toolboxes'         curvelets, wave atoms, and shearlets 
 
 The curvelet toolbox (CurveLab-2.1.3) is taken from [^2], the wave atoms toolbox (WaveAtom-1.1.1) is taken from [^3], and the shearlet toolbox (Fast Finite Shearlet Transform, FFST) is taken from[^4]. 
 
