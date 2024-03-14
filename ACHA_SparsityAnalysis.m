@@ -49,13 +49,13 @@ clc;
 addpath(genpath('dependencies'));
 fprintf('Dependencies added to MATLAB path successfully.\n');
 
-% choose rooms
+% set rooms
 room = {'Balder','Freja','Munin','Munin'};
 
-% starting time samples
+% set starting time samples
 T_start = [0,0,0,2500];
 
-% no. decomposition scales (wavelets, shearlets, boostlets)
+% no. decomposition scales (wavelets, shearlets, curvelets, boostlets)
 S = 4;
 
 % sampling parameters and 2D space-time coordinates
