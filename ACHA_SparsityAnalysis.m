@@ -70,7 +70,7 @@ x = linspace(-M*dx/2,M*dx/2,M);
 % Preallocate arrays to store l1-norm results
 l1_norms = zeros(length(T_start), 6); % 6 decomposition methods
 
-%% Apply boostlet to Balder's RIR
+% Go through the four acoustic fields and decompose into different systems
 plot_count = 1;
 for splt = 1:length(T_start)
     % load acoustic field
