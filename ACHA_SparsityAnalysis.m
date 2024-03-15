@@ -56,7 +56,7 @@ room = {'Balder','Freja','Munin','Munin'};
 T_start = [0,0,0,2500];
 
 % no. decomposition scales (wavelets, shearlets, curvelets, boostlets)
-S = 4;
+S = 4; % integer between [2,4] — otherwise, some systems do not work!
 
 % sampling parameters and 2D space-time coordinates
 N = 100;
