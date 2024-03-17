@@ -31,6 +31,7 @@ This is what the Table looks like in the Command Window:
 **4. DEPENDENCIES**
 
 Folders:    
+
 	'Datasets'          measured acoustic fields in three rooms[^1]
         'Toolboxes'         curvelets, wave atoms, and shearlets 
 
