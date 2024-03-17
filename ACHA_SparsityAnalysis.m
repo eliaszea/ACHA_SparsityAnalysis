@@ -5,7 +5,7 @@
 %   space-time", submitted to Applied and Computational Harmonic Analysis, March 2024. 
 % -----------------------------------------------------------------------------------
 % EXAMPLE OF USAGE: 
-%   To reproduce the sparsity analysis in Figure 6, run the command: 
+%   To reproduce the sparsity analysis in Figure 6 of the paper, run the command: 
 %
 %       > ACHA_SparsityAnalysis;
 %
@@ -32,7 +32,7 @@
 % -----------------------------------------------------------------------------------
 % Code: E. Zea
 % Code history: 
-% - Version 001 [March 13, 2024]
+% - Version 001 [March 15, 2024]
 % -----------------------------------------------------------------------------------
 % CONTACT: Elias Zea (zea@kth.se)
 %          Marcus Wallenberg Laboratory for Sound and Vibration Research
@@ -49,14 +49,14 @@ clc;
 addpath(genpath('dependencies'));
 fprintf('Dependencies added to MATLAB path successfully.\n');
 
-% set rooms
+% choose rooms
 room = {'Balder','Freja','Munin','Munin'};
 
-% set starting time samples
+% starting time samples
 T_start = [0,0,0,2500];
 
-% no. decomposition scales (wavelets, shearlets, curvelets, boostlets)
-S = 4; % integer between [2,4] — otherwise, some systems do not work!
+% no. decomposition scales (wavelets, shearlets, boostlets)
+S = 2; % integer between [2,4] — otherwise, some systems do not work!
 
 % sampling parameters and 2D space-time coordinates
 N = 100;
@@ -73,7 +73,7 @@ l1_norms = zeros(length(T_start), 6); % 6 decomposition methods
 % Preallocate boostlet coefficients
 BT = [];
 
-% Go through the four acoustic fields and decompose into different systems
+%% Apply boostlet to Balder's RIR
 plot_count = 1;
 for splt = 1:length(T_start)
     % load acoustic field
@@ -129,28 +129,30 @@ for splt = 1:length(T_start)
     selected_waveats_coeffs = selected_waveats_coeffs/sqrt(sum(selected_waveats_coeffs(:).^2));
 
     % compute boostlet coefficients and sort in descending amplitude
-    cc = 1; % redundancy counter for boostlet multi-index
-    boost_type = 1; % first the scaling function
-    [phi,KX,OM] = genBoostlet(N,0,0,S,boost_type,0,0);
+    cc = 1; % redundancy counter (cc = 1 means scaling function coeffs)
+    % set dilation and boost levels
+    a_grid = 2.^(linspace(0,S-1,S));
+    theta_grid = linspace(-pi/2,pi/2,7); % hard-wired, should change if S changes!
+    % first, scaling function
+    far_or_near = 0;
+    boost_type = 1;
+    a_j = S-1;
+    [phi,KX,OM] = genBoostlet(N,a_j,0,far_or_near,boost_type);
     BT(:,:,cc) = reshape(Y_hat.*phi,N,N,1);
-    for nnff = [0,1] % near-field or far-field
-        for bb = [2,3] % boost types
-            for aa = 0:S % scales
-                if bb == 3
-                    for tt = 0:S % boost
-                        for ss = [0,1] % left or right waves
-                            cc = cc + 1;
-                            phi = genBoostlet(N,tt,aa,S,bb,nnff,ss);
-                            BT(:,:,cc) = reshape(Y_hat.*phi,N,N,1);
-                        end
-                    end
-                elseif bb == 2
-                    tt = 0;
-                    ss = 0;
-                    cc = cc + 1;
-                    phi = genBoostlet(N,tt,aa,S,bb,nnff,ss);
-                    BT(:,:,cc) = reshape(Y_hat.*phi,N,N,1);
-                end
+    % then, decompose through boostlets
+    far_or_near = [0,1];
+    boost_type = 2;
+    for fnfn = far_or_near
+        for aa = 1:length(a_grid)
+            for thth = 1:length(theta_grid)
+                % generate boostlet functions
+                a_j = a_grid(aa); % dilation level
+                theta_j = theta_grid(thth); % boost level
+                % generate boostlet function
+                [phi,KX,OM] = genBoostlet(N,a_j,theta_j,fnfn,boost_type);
+                % compute (cc+1)-th boostlet coefficient and store
+                cc = cc + 1;
+                BT(:,:,cc) = reshape(Y_hat.*phi,N,N,1);
             end
         end
     end
@@ -221,7 +223,7 @@ for splt = 1:length(T_start)
     fig(2).LineWidth = 4; fig(2).Color = [0,0.45,0.74];
     fig(3).LineWidth = 1.5; fig(3).MarkerSize = 8; fig(3).Color = [0,0,1]; 
     fig(4).LineWidth = 3; fig(4).Color = [0.53,0.48,1]; 
-    fig(5).LineWidth = 2; fig(5).MarkerSize = 2; fig(5).Color = [0.59,0.12,0.75]; 
+    fig(5).LineWidth = 3; fig(5).MarkerSize = 2; fig(5).Color = [0.59,0.12,0.75]; 
     fig(6).LineWidth = 5; fig(6).Color = [0.89,0.07,0.52];
     set(gca,'fontsize',25,'TickLabelInterpreter', 'latex');
     axis tight;
@@ -262,84 +264,91 @@ rmpath(genpath('dependencies'));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [phi,KX,OM] = genBoostlet(N,j_t,j_a,j_max,boost_type,far_or_near,sideFlag)
+function [phi,KX,OM] = genBoostlet(N,a_j,theta_j,far_or_near,boost_type)
 % create Cartesian wavenumber-frequency space
 om = linspace(-1,1,N);
 kx = linspace(-1,1,N);
-[KX,OM] = meshgrid(kx,om); 
-% generate mask for single-sided anti-symmetric spectrum
-if sideFlag
-    mask = [ zeros(N/2), ones(N/2);
-             ones(N/2), zeros(N/2) ];
-else
-    mask = [ ones(N/2), zeros(N/2);
-            zeros(N/2),  ones(N/2) ];
+[KX,OM] = meshgrid(kx,om);
+
+% preallocate boosted/dilated points
+KX_atheta = zeros(size(KX));
+OM_atheta = zeros(size(OM));
+
+% define boost/dilation matrix
+M_a_theta = [ a_j*cosh(theta_j) -a_j*sinh(theta_j);
+             -a_j*sinh(theta_j)  a_j*cosh(theta_j)];
+
+% first boost and dilate:
+for ii = 1:N
+    for jj = 1:N
+        boosted_points = M_a_theta*[KX(ii,jj); OM(ii,jj)];
+        KX_atheta(ii,jj) = boosted_points(1);
+        OM_atheta(ii,jj) = boosted_points(2);
+    end
 end
-% compute boostlet
+
+% apply diffeo to boosted/dilated points
+[Ad,Th] = computeDiffeo(OM_atheta,KX_atheta,far_or_near);
+
 switch boost_type
     case 1 % scaling function
-        [Ad,~] = computeDiffeo(OM,KX,0);
-        phi = MeyerScalingFun(N,Ad,j_max).*MeyerScalingFun(N,Ad,j_max);
-        phi_max = max(abs(phi(:)));
-        phi = phi/phi_max;
-    case 2 % normal-incident boostlets (no boosts)
-        [Ad,Th] = computeDiffeo(OM,KX,far_or_near);
-        phi = MeyerWaveletFun(N,Ad,j_a,j_max).*MeyerScalingFun(N,Th,j_max);
-        phi_max = max(abs(phi(:)));
-        phi = phi/phi_max;
-    case 3 % oblique-incident boostlets (yes boosts)
-        [Ad,Th] = computeDiffeo(OM,KX,far_or_near);
-        phi = mask.*MeyerWaveletFun(N,Ad,j_a,j_max).*MeyerWaveletFun(N,Th,j_t,j_max);
-        phi_max = max(abs(phi(:)));
-        phi = phi/phi_max;
+        phi = MeyerScalingFun(N,Ad);
+    case 2 % boostlet functions
+        PHI_1 = MeyerWaveletFun(N,Ad);
+        PHI_2 = MeyerScalingFun(N,Th);
+        phi = PHI_1.*PHI_2;
 end
+phi_max = max(abs(phi(:)));
+phi = phi/phi_max;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [Ad,Th] = computeDiffeo(OM,KX,far_or_near)
-if far_or_near
-    % move Cartesian grid to diffeo (wavelet) space
+if ~far_or_near
+    % move Cartesian grid to diffeomorphic (wavelet) space
     Ad = sqrt(OM.^2-KX.^2); Ad = Ad(:);
-    Th = atanh(OM.^2./KX.^2); Th = Th(:);
+    %Th = atanh(KX.^2./OM.^2); Th = Th(:);
+    Th = atanh(KX./OM); Th = Th(:);
 else
-    % move Cartesian grid to diffeo (wavelet) space
+    % move Cartesian grid to diffeomorphic (wavelet) space
     Ad = sqrt(KX.^2-OM.^2); Ad = Ad(:);
-    Th = atanh(KX.^2./OM.^2); Th = Th(:);
+    %Th = atanh(OM.^2./KX.^2); Th = Th(:);
+    Th = atanh(OM./KX); Th = Th(:);
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function phi = MeyerScalingFun(N,omega,j_max)
-omB1 = 1/3*(2^-(j_max-1));
-omB2 = 2*omB1;
+function psi_1 = MeyerWaveletFun(N,a)
+aB1 = 1/3;
+aB2 = 2*aB1;
+aB3 = 4*aB1;
 
-int1 = find(abs(omega) < omB1); % scaling function
-int2 = find((abs(omega) >= omB1) & (abs(omega) < omB2));
+int1 = find((abs(a) >= aB1) & (abs(a) < aB2)); 
+int2 = find((abs(a) >= aB2) & (abs(a) < aB3));
 
-phi = zeros(numel(omega),1);
-phi(int1) = 1/sqrt(2*pi)*ones(size(int1));
-phi(int2) = 1/sqrt(2*pi)*cos( pi/2*meyeraux( abs(omega(int2))/omB1-1 ) );
-phi = reshape(phi,N,N); 
+psi_1 = zeros(numel(a),1);
+psi_1(int1) = 1/sqrt(2*pi)*exp( 1i*a(int1)/2 ).*...
+                         sin( pi/2*meyeraux( abs(a(int1))/aB1-1 ) );
+psi_1(int2) = 1/sqrt(2*pi)*exp( 1i*a(int2)/2 ).*...
+                         cos( pi/2*meyeraux( abs(a(int2))/aB2-1 ) );
+psi_1 = reshape(psi_1,N,N); 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function phi = MeyerWaveletFun(N,omega,j,j_max)
-omB1 = 1/3*(2^-(j_max-j));
-omB2 = 2*omB1;
-omB3 = 4*omB1;
+function psi_2 = MeyerScalingFun(N,theta)
+thetaB1 = 1/6;
+thetaB2 = 2*thetaB1;
 
-int1 = find((abs(omega) >= omB1) & (abs(omega) < omB2)); 
-int2 = find((abs(omega) >= omB2) & (abs(omega) < omB3));
+int1 = find(abs(theta) < thetaB1); 
+int2 = find((abs(theta) >= thetaB1) & (abs(theta) < thetaB2));
 
-phi = zeros(numel(omega),1);
-phi(int1) = 1/sqrt(2*pi)*exp( 1i*omega(int1)/2 ).*...
-                         sin( pi/2*meyeraux( abs(omega(int1))/omB1-1 ) );
-phi(int2) = 1/sqrt(2*pi)*exp( 1i*omega(int2)/2 ).*...
-                         cos( pi/2*meyeraux( abs(omega(int2))/omB2-1 ) );
-phi = reshape(phi,N,N); 
+psi_2 = zeros(numel(theta),1);
+psi_2(int1) = 1/sqrt(2*pi)*ones(size(int1));
+psi_2(int2) = 1/sqrt(2*pi)*cos( pi/2*meyeraux( abs(theta(int2))/thetaB1-1 ) );
+psi_2 = reshape(psi_2,N,N); 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
