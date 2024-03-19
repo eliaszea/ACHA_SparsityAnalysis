@@ -12,6 +12,7 @@ Download the .zip file and extract it in your preferred folder. You do not need 
 OBS: The user must have the Wavelet Toolbox installed in Matlab. 
 
 **3. EXAMPLE OF USAGE**
+
   To reproduce the sparsity analysis in Figure 6 of the manuscript, run the command: 
 
       > ACHA_SparsityAnalysis;
