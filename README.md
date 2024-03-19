@@ -3,7 +3,7 @@
 **1. INTRODUCTION**
 
 This code can be used to reproduce the sparsity analysis in the paper:
-  E. Zea, M. Laudato, J. Andén, "A continuous boostlet transform for acoustic waves in space-time", submitted to Applied and Computational Harmonic Analysis, March 2024. 
+  E. Zea, M. Laudato, J. Andén, "A continuous boostlet transform for acoustic waves in space-time", arXiv:2403.11362, DOI: [10.48550/arXiv.2403.11362](https://doi.org/10.48550/arXiv.2403.11362), 2024. 
 
 **2. INSTALLATION**
 
