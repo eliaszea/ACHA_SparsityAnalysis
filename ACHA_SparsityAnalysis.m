@@ -127,16 +127,13 @@ for splt = 1:length(T_start)
     selected_waveats_coeffs = waveats_coeffs(1:N_max);
     selected_waveats_coeffs = selected_waveats_coeffs/sqrt(sum(selected_waveats_coeffs(:).^2));
 
-    % compute boostlet coefficients and sort in descending amplitude
+    % boostlet coefficients and sort in descending amplitude
     cc = 1; % redundancy counter (cc = 1 means scaling function coeffs)
     % set dilation and boost levels
     a_grid = 2.^(linspace(0,S-1,S));
     theta_grid = linspace(-pi/2,pi/2,7); % hard-wired, should change if S changes!
     % first, scaling function
-    far_or_near = 0;
-    boost_type = 1;
-    a_j = S-1;
-    [phi,KX,OM] = genBoostlet(N,a_j,0,far_or_near,boost_type);
+    [phi,KX,OM] = genBoostlet(N,S-1,0,0,1);
     BT(:,:,cc) = reshape(Y_hat.*phi,N,N,1);
     % then, decompose through boostlets
     far_or_near = [0,1];
@@ -144,11 +141,8 @@ for splt = 1:length(T_start)
     for fnfn = far_or_near
         for aa = 1:length(a_grid)
             for thth = 1:length(theta_grid)
-                % generate boostlet functions
-                a_j = a_grid(aa); % dilation level
-                theta_j = theta_grid(thth); % boost level
                 % generate boostlet function
-                [phi,KX,OM] = genBoostlet(N,a_j,theta_j,fnfn,boost_type);
+                [phi,KX,OM] = genBoostlet(N,a_grid(aa),theta_grid(thth),fnfn,boost_type);
                 % compute (cc+1)-th boostlet coefficient and store
                 cc = cc + 1;
                 BT(:,:,cc) = reshape(Y_hat.*phi,N,N,1);
