@@ -73,7 +73,6 @@ l1_norms = zeros(length(T_start), 6); % 6 decomposition methods
 % Preallocate boostlet coefficients
 BT = [];
 
-%% Apply boostlet to Balder's RIR
 plot_count = 1;
 for splt = 1:length(T_start)
     % load acoustic field
