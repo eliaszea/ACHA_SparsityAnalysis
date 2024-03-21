@@ -1,8 +1,8 @@
 %ACHA_SPARSITYANALYSIS Code to reproduce sparsity analysis
 % -----------------------------------------------------------------------------------
 %       This code can be used to reproduce the sparsity analysis in the paper:
-%   Zea, Laudato, Andén, "A continuous boostlet transform for acoustic waves in 
-%   space-time", submitted to Applied and Computational Harmonic Analysis, March 2024. 
+%   E. Zea, M. Laudato, J. Andén, "A continuous boostlet transform for acoustic waves 
+%   in space-time", arXiv:2403.11362, March 2024. 
 % -----------------------------------------------------------------------------------
 % EXAMPLE OF USAGE: 
 %   To reproduce the sparsity analysis in Figure 6 of the paper, run the command: 
