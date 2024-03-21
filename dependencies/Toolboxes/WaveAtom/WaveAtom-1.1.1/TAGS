@@ -1,0 +1,874 @@
+
+cvwindow.m,144
+function 1,0
+function [wl,1,0
+  wl 4,55
+  eps 6,81
+  sml 7,96
+  mid 8,128
+  lrg 9,173
+  xmid 14,271
+  a 15,288
+  b 16,328
+  n 17,364
+
+dct2.m,36
+function x 1,0
+  t 2,22
+  t 3,36
+
+freq_pat.m,552
+function lst 1,0
+    lst 18,534
+    lst{19,557
+    lst{1} = [1 1];    lst{19,557
+    lst{1} = [1 1];    lst{2} = [0 1];    lst{19,557
+    cnt 20,619
+    idx 21,633
+    idx = 3;    rad 21,633
+      cnt 25,725
+      idx 26,750
+      rad 27,769
+      trg 28,788
+      cnt 30,874
+    len 33,948
+    lst 34,978
+    lst{35,1001
+    lst{1} = [1 1];    lst{35,1001
+    cnt 36,1044
+    idx 37,1057
+    idx = 2;      rad 37,1057
+      cnt 41,1151
+      idx 42,1176
+      rad 43,1195
+      trg 44,1214
+      cnt 46,1300
+  elseif(48,1325
+
+fwa1.m,982
+function c 1,0
+  x 26,914
+    H 31,1040
+    lst 32,1053
+    f 34,1104
+    A 35,1138
+    c 36,1149
+          B 45,1363
+          D 46,1386
+          Ict 47,1405
+            Ifm = Ict-2/3*B;        Ito 49,1452
+            Ifm 51,1520
+            Ifm = Ict-1/3*B;        Ito 51,1520
+          res 53,1587
+              Idx = [ceil(Ifm):floor(Ito)];      Icf 56,1658
+              Idx 58,1750
+              Idx = [ceil(-Ito):floor(-Ifm)];      Icf 58,1750
+    H 72,2285
+    lst 73,2298
+    f 75,2349
+    A 76,2383
+    c1 77,2394
+    c2 78,2424
+          B 89,2694
+          D 90,2717
+          Ict 92,2747
+            Ifm = Ict-2/3*B;        Ito 94,2794
+            Ifm 96,2862
+            Ifm = Ict-1/3*B;        Ito 96,2862
+          res 99,2940
+          Idx 100,2968
+          Idx = [ceil(Ifm):floor(Ito)];      Icf 100,2968
+          res 104,3192
+          Idx 105,3220
+          Idx = [ceil(-Ito):floor(-Ifm)];      Icf 105,3220
+    c 111,3465
+
+fwa1sym.m,102
+function res 1,0
+  x 24,791
+  call 26,806
+  N 28,834
+  res 29,850
+    y 32,923
+      nw 35,980
+
+fwa2.m,16
+function c 1,0
+
+fwa2sym.m,92
+function res 1,0
+  call 27,925
+  N 28,950
+  res 29,967
+    y 33,1045
+      nw 36,1102
+
+fwa3.m,16
+function c 1,0
+
+fwa3sym.m,92
+function res 1,0
+  call 27,944
+  N 28,969
+  res 29,986
+    y 33,1066
+      nw 36,1125
+
+g.m,160
+function r 1,0
+  gd 6,140
+function r 10,277
+  aw 13,321
+  gd 16,360
+  gd 19,433
+function r 24,526
+  r 26,572
+  w 27,594
+  r 29,611
+function r 33,702
+
+idct2.m,26
+function y 1,0
+  t 3,37
+
+iwa1.m,905
+function x 1,0
+    N 36,1139
+    H 37,1150
+    lst 38,1163
+    A 39,1190
+    f 40,1201
+          D 47,1370
+          Ict 48,1389
+            Ifm = Ict-2/3*B;        Ito 50,1436
+            Ifm 52,1504
+            Ifm = Ict-1/3*B;        Ito 52,1504
+          res 54,1571
+              Idx = [ceil(Ifm):floor(Ito)];      Icf 57,1676
+              Idx 59,1768
+              Idx = [ceil(-Ito):floor(-Ifm)];      Icf 59,1768
+    c2 74,2301
+    T 76,2323
+    N 83,2456
+    H 84,2467
+    lst 85,2480
+    A 86,2507
+    f 87,2518
+          D 94,2688
+          Ict 96,2718
+            Ifm = Ict-2/3*B;        Ito 98,2765
+            Ifm 100,2833
+            Ifm = Ict-1/3*B;        Ito 100,2833
+          Idx 103,2911
+          Idx = [ceil(Ifm):floor(Ito)];      Icf 103,2911
+          res 104,2982
+          Idx = [ceil(-Ito):floor(-Ifm)];      Icf 107,3135
+          res 108,3208
+
+iwa1sym.m,160
+function x 1,0
+  N 25,797
+  H 26,821
+  lst 27,832
+  red 28,857
+  call 30,881
+    c 33,945
+      B = 2^(s-1);    D 35,998
+      nw 36,1029
+  x 48,1259
+
+iwa2.m,16
+function x 1,0
+
+iwa2sym.m,163
+function x 1,0
+  N 28,926
+  H 29,945
+  lst 30,956
+  red 31,981
+  call 33,1005
+    c 36,1071
+      B = 2^(s-1);    D 38,1124
+      nw 39,1155
+  x 53,1465
+
+iwa3.m,16
+function x 1,0
+
+iwa3sym.m,163
+function x 1,0
+  N 27,944
+  H 28,963
+  lst 29,974
+  red 30,999
+  call 32,1023
+    c 35,1091
+      B = 2^(s-1);    D 37,1144
+      nw 38,1175
+  x 54,1571
+
+kf_lf.m,65
+function r 1,0
+  an 7,124
+  en 8,145
+  en1 9,160
+  r 11,183
+
+kf_rt.m,65
+function r 1,0
+  an 7,125
+  en 8,146
+  en1 9,161
+  r 11,184
+
+mecombine.m,261
+function f 1,0
+  N 3,45
+  f 5,61
+  ridx 7,90
+  ridx = -N-E:-N-1;  fidx 7,90
+  ridx 9,191
+  ridx = -N+1:-1;  fidx 9,191
+  ridx 11,291
+  ridx = 0;  fidx 11,291
+  ridx 13,386
+  ridx = 1:N-1;  fidx 13,386
+  ridx 15,481
+  ridx = N+1:N+E-1;  fidx 15,481
+
+mefcv2.m,4438
+function c 1,0
+  fd 31,952
+  E1 34,985
+  E1 = ceil(N1/3);  E2 34,985
+  E1 = ceil(N1/3);  E2 = ceil(N2/3);  %E1 34,985
+  E1 = ceil(N1/3);  E2 = ceil(N2/3);  %E1 = 0;  E2 34,985
+  fd 35,1041
+  fd 36,1066
+  A1 37,1093
+  A1 = size(fd,1);    A2 37,1093
+  G1 39,1135
+  G1 = 4/3*N1;  G2 39,1135
+  c 41,1167
+  ttl 42,1185
+    R2 47,1251
+    idx1 49,1278
+    [wl,50,1312
+    [wl,wr] = cvwindow((idx1+R1/1)/(R1/2));    tmpa 50,1312
+    [wl,51,1370
+    [wl,wr] = cvwindow((idx1-R1/2)/(R1/2));    tmpb 51,1370
+    coef1 52,1428
+    idx2 53,1452
+    [wl,54,1486
+    [wl,wr] = cvwindow((idx2+R2/1)/(R2/2));    tmpa 54,1486
+    [wl,55,1544
+    [wl,wr] = cvwindow((idx2-R2/2)/(R2/2));    tmpb 55,1544
+    coef2 56,1602
+    lowpass 57,1626
+    [wl,60,1693
+    [wl,wr] = cvwindow((idx1+R1/2)/(R1/4));    tmpa 60,1693
+    [wl,61,1751
+    [wl,wr] = cvwindow((idx1-R1/4)/(R1/4));    tmpb 61,1751
+    coef1 62,1809
+    idx2 63,1833
+    [wl,64,1867
+    [wl,wr] = cvwindow((idx2+R2/2)/(R2/4));    tmpa 64,1867
+    [wl,65,1925
+    [wl,wr] = cvwindow((idx2-R2/4)/(R2/4));    tmpb 65,1925
+    coef2 66,1983
+    tmppass 67,2007
+    pass 70,2074
+    [M1,71,2103
+    fh 72,2129
+    %ggg 74,2235
+    nbangles 76,2272
+    [M1,80,2376
+    nd 81,2400
+    cs 82,2421
+    W1 83,2442
+    W1 = 2*R1/nd;  W2 83,2442
+    cnt 86,2510
+      xs = R1/4-(W1/2)/4;    xe 88,2543
+      ys 89,2581
+      ys = -R2 + (2*g-1)*W2/2;		ye 89,2581
+      xn 90,2638
+      xn = ceil(xe-xs);    yn 90,2638
+        thtm 93,2738
+        thte 94,2778
+        thtm 97,2888
+        thte 98,2936
+        thts 100,2986
+        thtm 101,3034
+        thte 102,3082
+      %fprintf(1,'%d %d %d\n',thts,104,3140
+      %fprintf(1,'%d %d %d\n',thts,thtm,104,3140
+      %fprintf(1,'%d %d %d\n',thts,thtm,thte)104,3140
+      R21 105,3187
+      wpdata 106,3206
+        yto 109,3316
+        ycur 110,3370
+        thtcur 111,3394
+        [al,112,3435
+        [bl,113,3490
+        pou 114,3545
+      cs{cnt} = ifft2(wpdata) * sqrt(numel(wpdata));      ttl 117,3667
+      cnt 118,3757
+      ys = R2/4-(W2/2)/4;		  ye 122,3812
+      xs 123,3850
+      xs = -R1 + (2*f-1)*W1/2;		  xe 123,3850
+      xn 124,3909
+      xn = ceil(xe-xs);		  yn 124,3909
+        phim 127,4009
+        phie 128,4049
+        phim 131,4159
+        phie 132,4207
+        phis 134,4257
+        phim 135,4305
+        phie 136,4353
+      %fprintf(1,'%d %d %d\n',phis,138,4411
+      %fprintf(1,'%d %d %d\n',phis,phim,138,4411
+      %fprintf(1,'%d %d %d\n',phis,phim,phie)138,4411
+      R12 139,4458
+      wpdata 140,4477
+        xto 143,4587
+        xcur 144,4641
+        phicur 145,4665
+        [al,146,4707
+        [bl,147,4762
+        pou 148,4817
+      cs{cnt} = ifft2(wpdata) * sqrt(numel(wpdata));      ttl 151,4940
+      cnt 152,5030
+    %fprintf(1,'%d %d\n', ttl,156,5075
+    R1 163,5167
+    R2 164,5189
+    idx1 165,5211
+    [wl,166,5245
+    [wl,wr] = cvwindow((idx1+R1/1)/(R1/2));    tmpa 166,5245
+    [wl,167,5303
+    [wl,wr] = cvwindow((idx1-R1/2)/(R1/2));    tmpb 167,5303
+    coef1 168,5361
+    idx2 169,5385
+    [wl,170,5419
+    [wl,wr] = cvwindow((idx2+R2/1)/(R2/2));    tmpa 170,5419
+    [wl,171,5477
+    [wl,wr] = cvwindow((idx2-R2/2)/(R2/2));    tmpb 171,5477
+    coef2 172,5535
+    pass 173,5559
+    fh 176,5615
+    fh(mod(idx1,M1)+1,mod(idx2,M2)+1) = pass .* fd(mod(idx1,A1)+1,mod(idx2,A2)+1);    %ggg 177,5638
+    cs 179,5757
+    K1 180,5777
+    K1 = M1+1;    K2 180,5777
+    tmp 181,5806
+    tmp 183,5906
+    tmp 184,5934
+    tmp 185,5964
+    cs{186,5981
+    cs{1} = tmp;    ttl 186,5981
+    %fprintf(1,'%d\n', ttl)189,6051
+%   f0 199,6108
+%   o 200,6126
+%   f1 201,6146
+%   o 202,6179
+%   f2 203,6201
+%   f2 = [f1; o;203,6201
+%   p 204,6236
+%   f 206,6277
+%   addpath /Users/lexing/projects/curve_lab/CurveLab-2.0.2/fdct_wrapping_cpp/mex;211,6396
+%   m 212,6479
+%   m = 2*N;  n 212,6479
+%   m = 2*N;  n = 2*N;  nbscales 212,6479
+%   m = 2*N;  n = 2*N;  nbscales = floor(log2(min(m,n)))-3;  nbangles_coarse 212,6479
+%   m = 2*N;  n = 2*N;  nbscales = floor(log2(min(m,n)))-3;  nbangles_coarse = 16;  allcurvelets 212,6479
+%   tc 213,6581
+%   rmpath /Users/lexing/projects/curve_lab/CurveLab-2.0.2/fdct_wrapping_cpp/mex;214,6663
+%   c 216,6748
+%   tmp0 221,6870
+%   [m,222,6926
+%   mp 223,6950
+%   mp = (m+1)/2;  np 223,6950
+%   tmp 224,6983
+%   q 225,7010
+%   tmp 227,7052
+
+mefwa2.m,16
+function c 1,0
+
+mefwa2sym.m,261
+function res 1,0
+    N 33,1140
+    res 34,1161
+      y 38,1247
+        nw 41,1310
+    call 54,1628
+    N 55,1657
+    res 56,1678
+      y 60,1764
+        nw 63,1827
+    call 77,2154
+    N 78,2183
+    res 79,2204
+      y 83,2292
+        nw 86,2357
+
+meicv2.m,3346
+function x 1,0
+  E1 = ceil(N1/3);  E2 26,894
+  E1 = ceil(N1/3);  E2 = ceil(N2/3);  %E1 26,894
+  E1 = ceil(N1/3);  E2 = ceil(N2/3);  %E1 = 0;  E2 26,894
+  A1 27,950
+  A1 = 2*(N1+E1);  A2 27,950
+  fd 28,985
+  G1 30,1009
+  G1 = 4/3*N1;  G2 30,1009
+    R2 34,1079
+    idx1 36,1106
+    [wl,37,1140
+    [wl,wr] = cvwindow((idx1+R1/1)/(R1/2));    tmpa 37,1140
+    [wl,38,1198
+    [wl,wr] = cvwindow((idx1-R1/2)/(R1/2));    tmpb 38,1198
+    coef1 39,1256
+    idx2 40,1280
+    [wl,41,1314
+    [wl,wr] = cvwindow((idx2+R2/1)/(R2/2));    tmpa 41,1314
+    [wl,42,1372
+    [wl,wr] = cvwindow((idx2-R2/2)/(R2/2));    tmpb 42,1372
+    coef2 43,1430
+    lowpass 44,1454
+    [wl,47,1521
+    [wl,wr] = cvwindow((idx1+R1/2)/(R1/4));    tmpa 47,1521
+    [wl,48,1579
+    [wl,wr] = cvwindow((idx1-R1/4)/(R1/4));    tmpb 48,1579
+    coef1 49,1637
+    idx2 50,1661
+    [wl,51,1695
+    [wl,wr] = cvwindow((idx2+R2/2)/(R2/4));    tmpa 51,1695
+    [wl,52,1753
+    [wl,wr] = cvwindow((idx2-R2/4)/(R2/4));    tmpb 52,1753
+    coef2 53,1811
+    tmppass 54,1835
+    pass 57,1902
+    [M1,58,1931
+    fh 60,1962
+    nbangles 63,2002
+    [M1,65,2055
+    nd 66,2079
+    cs 67,2100
+    W1 68,2115
+    W1 = 2*R1/nd;  W2 68,2115
+    cnt 71,2179
+      xs = R1/4-(W1/2)/4;    xe 73,2212
+      ys 74,2250
+      ys = -R2 + (2*g-1)*W2/2;		ye 74,2250
+      xn 75,2307
+      xn = ceil(xe-xs);    yn 75,2307
+        thtm 78,2407
+        thte 79,2447
+      elseif(80,2487
+      cnt 92,2928
+        yto 95,3028
+        ycur 96,3082
+        thtcur 97,3106
+        [al,98,3147
+        [bl,99,3202
+        pou 100,3257
+      ys = R2/4-(W2/2)/4;		  ye 106,3451
+      xs 107,3489
+      xs = -R1 + (2*f-1)*W1/2;		  xe 107,3489
+      xn 108,3548
+      xn = ceil(xe-xs);		  yn 108,3548
+        phim 111,3648
+        phie 112,3688
+      elseif(113,3728
+      cnt 125,4169
+        xto 128,4269
+        xcur 129,4323
+        phicur 130,4347
+        [al,131,4389
+        [bl,132,4444
+        pou 133,4499
+    R1 144,4840
+    R2 145,4862
+    idx1 146,4884
+    [wl,147,4918
+    [wl,wr] = cvwindow((idx1+R1/1)/(R1/2));    tmpa 147,4918
+    [wl,148,4976
+    [wl,wr] = cvwindow((idx1-R1/2)/(R1/2));    tmpb 148,4976
+    coef1 149,5034
+    idx2 150,5058
+    [wl,151,5092
+    [wl,wr] = cvwindow((idx2+R2/1)/(R2/2));    tmpa 151,5092
+    [wl,152,5150
+    [wl,wr] = cvwindow((idx2-R2/2)/(R2/2));    tmpb 152,5150
+    coef2 153,5208
+    pass 154,5232
+    cs 157,5288
+    tmp 158,5303
+    tmp 159,5320
+    tmp 160,5337
+    tmp 161,5365
+    [K1,162,5395
+    fh 163,5420
+  fd 169,5652
+  fd 170,5677
+  x 172,5705
+%   tc 177,5734
+%     [ni,180,5811
+%     tc{s}(1+3/8*nw:5/8*nw)188,6027
+%   tmp 190,6072
+%   [mp,191,6097
+%   q 192,6122
+%   tmp 194,6164
+%   tc{197,6249
+%   addpath /Users/lexing/projects/curve_lab/CurveLab-2.0.2/fdct_wrapping_cpp/mex;199,6305
+%   m 200,6388
+%   m = 2*N;  n 200,6388
+%   m = 2*N;  n = 2*N;  nbscales 200,6388
+%   m = 2*N;  n = 2*N;  nbscales = floor(log2(min(m,n)))-3;  nbangles_coarse 200,6388
+%   m = 2*N;  n = 2*N;  nbscales = floor(log2(min(m,n)))-3;  nbangles_coarse = 16;  allcurvelets 200,6388
+%   tx 201,6490
+%   rmpath /Users/lexing/projects/curve_lab/CurveLab-2.0.2/fdct_wrapping_cpp/mex;202,6565
+%   f 204,6650
+%   p 206,6694
+%   f2 207,6731
+%   f0 210,6832
+
+meiwa2.m,16
+function x 1,0
+
+meiwa2sym.m,509
+function x 1,0
+    N 32,1137
+    lst 33,1151
+    red 34,1178
+    call 36,1206
+      c 39,1278
+        B = 2^(s-1);    D 41,1335
+        nw 42,1368
+    x 56,1706
+    A 59,1810
+    N 60,1831
+    lst 61,1845
+    red 62,1872
+    call 64,1900
+      c 67,1972
+        B = 2^(s-1);    D 69,2029
+        nw 70,2062
+    x 84,2400
+    A 87,2501
+    N 88,2522
+    lst 89,2535
+    red 90,2562
+    call 92,2590
+      c 95,2662
+        B = 2^(s-1);    D 97,2719
+        nw 98,2752
+    x 112,3094
+
+mescatter.m,276
+function r 1,0
+  A 3,45
+  r 5,63
+  ridx 7,92
+  ridx = -N-E:-N-1;  fidx 7,92
+  ridx 9,173
+  ridx = -N+1:-1;  fidx 9,173
+  ridx 11,252
+  ridx = 0;  fidx 11,252
+  ridx 13,328
+  ridx = 1:N-1;  fidx 13,328
+  ridx 15,402
+  ridx = N+1:N+E-1;  fidx 15,402
+  ridx 17,488
+
+test_mecv2.m,870
+N 3,104
+ns 4,113
+nag 5,137
+z 7,148
+c 8,164
+  iw 12,215
+  [n1,13,246
+  y 15,306
+  figure;16,334
+  figure; imagesc(real(y)); axis xy;16,334
+  figure; imagesc(real(y)); axis xy; axis equal;16,334
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight;16,334
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight; colormap(1-gray)16,334
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight; colormap(1-gray); colorbar;16,334
+  d 19,492
+  iw 20,501
+  [n1,21,532
+  y 23,601
+  figure;24,629
+  figure; imagesc(real(y)); axis xy;24,629
+  figure; imagesc(real(y)); axis xy; axis equal;24,629
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight;24,629
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight; colormap(1-gray)24,629
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight; colormap(1-gray); colorbar;24,629
+
+test_mecv2_reconstruction.m,741
+  H 6,105
+  [a,7,116
+  x 8,141
+  x 9,154
+  ns 10,201
+  nag 11,227
+  ci 12,240
+  c 14,255
+  cfs 16,286
+  for s=1:length(c);    for w=1:length(c{s});      cfs 17,298
+  for s=1:length(c);    for w=1:length(c{s});      cfs = [cfs; abs(c{s}{w}(:))];    end;17,298
+  cfs 18,392
+  cfs = sort(abs(cfs)); cfs 18,392
+  val 19,437
+  d 20,454
+  cnt 21,463
+      d{s}{w}25,570
+  fprintf(1, 'number of coefficients used = %d\n', cnt)28,634
+  y 29,691
+  figure;30,719
+  figure;  imagesc(real(y)); axis equal;30,719
+  figure;  imagesc(real(y)); axis equal; axis tight;30,719
+  figure;  imagesc(real(y)); axis equal; axis tight; colormap gray;30,719
+  figure;  imagesc(real(y)); axis equal; axis tight; colormap gray; colorbar;30,719
+
+test_mewa2.m,932
+N 3,105
+pat 4,114
+tp 5,125
+z 7,146
+c 8,162
+ns 9,184
+  m1 13,240
+  m1 = nw-2;  m2 13,240
+  [n1,14,265
+  d 16,302
+  d{is,1}{m1,17,311
+  y 18,347
+  figure;19,371
+  figure; imagesc(real(y)); axis xy;19,371
+  figure; imagesc(real(y)); axis xy; axis equal;19,371
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight;19,371
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight; colormap(1-gray)19,371
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight; colormap(1-gray); colorbar;19,371
+  d 22,538
+  d{is,1}{m1,23,547
+  y 24,592
+  figure;25,616
+  figure; imagesc(real(y)); axis xy;25,616
+  figure; imagesc(real(y)); axis xy; axis equal;25,616
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight;25,616
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight; colormap(1-gray)25,616
+  figure; imagesc(real(y)); axis xy; axis equal; axis tight; colormap(1-gray); colorbar;25,616
+
+test_mewa2_reconstruction.m,1188
+  H 6,130
+  [a,7,141
+  x 8,166
+  x 9,179
+  ci 11,229
+  pat 13,256
+  tp 14,269
+  c 15,291
+  cfs 16,318
+  cfs = c(:); cfs 16,318
+  cfs = c(:); cfs = sort(abs(cfs)); cfs 16,318
+  val 17,375
+  gd 18,392
+  gd = abs(c)>=val+eps;  cnt 18,392
+  d 19,435
+  y 20,465
+  figure;21,492
+  figure;  imagesc(y); axis equal;21,492
+  figure;  imagesc(y); axis equal; axis tight;21,492
+  figure;  imagesc(y); axis equal; axis tight; colormap gray;21,492
+  figure;  imagesc(y); axis equal; axis tight; colormap gray; colorbar;21,492
+  fprintf(1,'number of coefficients used for mirror-extended wave atoms = %d\n',cnt)23,631
+  pat 25,732
+  tp 26,745
+  c 27,767
+  cfs 28,792
+  cfs = c(:); cfs 28,792
+  cfs = c(:); cfs = sort(abs(cfs)); cfs 28,792
+  val 29,849
+  gd 30,866
+  gd = abs(c)>=val+eps;  cnt 30,866
+  d 31,909
+  y 32,939
+  figure;33,964
+  figure;  imagesc(y); axis equal;33,964
+  figure;  imagesc(y); axis equal; axis tight;33,964
+  figure;  imagesc(y); axis equal; axis tight; colormap gray;33,964
+  figure;  imagesc(y); axis equal; axis tight; colormap gray; colorbar;33,964
+  fprintf(1,'number of coefficients used for standard wave atoms = %d\n',cnt)35,1087
+
+test_wa1.m,141
+N 3,90
+pat 4,99
+tp 5,110
+z 7,125
+c 8,141
+ns 9,161
+  nw 13,202
+  nb 14,224
+  ia 15,250
+  y 17,296
+  figure;18,318
+  figure;19,398
+
+test_wa2.m,791
+N 3,90
+pat 4,99
+tp 5,110
+z 7,131
+c 8,147
+ns 9,167
+  nw 13,208
+  nb 14,232
+  ia 15,263
+  ia = ceil(nw/2);  ib 15,263
+  d{is,1}{ia,16,300
+  y 17,337
+  figure;18,359
+  figure; imagesc(real(y)); axis equal;18,359
+  figure; imagesc(real(y)); axis equal; axis tight;18,359
+  figure; imagesc(real(y)); axis equal; axis tight; colormap(1-gray)18,359
+  figure; imagesc(real(y)); axis equal; axis tight; colormap(1-gray); colorbar;18,359
+  figure;20,501
+  figure; imagesc(abs(fftshift(fft2(y)))); axis equal;20,501
+  figure; imagesc(abs(fftshift(fft2(y)))); axis equal; axis tight;20,501
+  figure; imagesc(abs(fftshift(fft2(y)))); axis equal; axis tight; colormap(1-gray)20,501
+  figure; imagesc(abs(fftshift(fft2(y)))); axis equal; axis tight; colormap(1-gray); colorbar;20,501
+
+test_wa2_denoising.m,1676
+    sigma 9,164
+    x 11,188
+    sigma 12,236
+    x = x/max(x(:));      x 16,287
+  x 18,336
+  N 20,386
+  noisy_x 21,403
+  figure;23,446
+  figure; clf;23,446
+  figure; clf; imagesc(x); axis equal;23,446
+  figure; clf; imagesc(x); axis equal; axis tight;23,446
+  figure; clf; imagesc(x); axis equal; axis tight; colormap gray;23,446
+  figure; clf; imagesc(x); axis equal; axis tight; colormap gray; colorbar;23,446
+  figure;26,549
+  figure; clf;26,549
+  figure; clf; imagesc(noisy_x); axis equal;26,549
+  figure; clf; imagesc(noisy_x); axis equal; axis tight;26,549
+  figure; clf; imagesc(noisy_x); axis equal; axis tight; colormap gray;26,549
+  figure; clf; imagesc(noisy_x); axis equal; axis tight; colormap gray; colorbar;26,549
+  threshold 29,658
+  shifts 30,683
+  pat 33,735
+  tp 34,748
+  val 35,770
+      cfs 39,873
+      cfs 40,911
+      tmp 41,963
+      tmp 42,1002
+      val 43,1040
+  val 46,1077
+  figure;47,1109
+  figure; clf;47,1109
+  figure; clf; imagesc(val); axis equal;47,1109
+  figure; clf; imagesc(val); axis equal; axis tight;47,1109
+  figure; clf; imagesc(val); axis equal; axis tight; axis off;47,1109
+  figure; clf; imagesc(val); axis equal; axis tight; axis off; colormap gray;47,1109
+  val 51,1300
+      [cfs,55,1403
+      cfs 56,1449
+      tmp 57,1490
+      tmp 58,1526
+      val 59,1564
+  val 62,1601
+  figure;63,1633
+  figure; clf;63,1633
+  figure; clf; imagesc(val); axis equal;63,1633
+  figure; clf; imagesc(val); axis equal; axis tight;63,1633
+  figure; clf; imagesc(val); axis equal; axis tight; axis off;63,1633
+  figure; clf; imagesc(val); axis equal; axis tight; axis off; colormap gray;63,1633
+
+test_wa2_reconstruction.m,1343
+    ci 9,174
+    x 11,196
+    ci 12,244
+    x = x/max(x(:));      x 16,292
+  x 18,341
+  N 20,391
+  figure;22,411
+  figure; clf;22,411
+  figure; clf; imagesc(x); axis equal;22,411
+  figure; clf; imagesc(x); axis equal; axis tight;22,411
+  figure; clf; imagesc(x); axis equal; axis tight; colormap gray;22,411
+  figure; clf; imagesc(x); axis equal; axis tight; colormap gray; colorbar;22,411
+  pat 26,545
+  tp 27,558
+  c 28,580
+  cfs 29,611
+  cfs = c(:); cfs 29,611
+  cfs = c(:); cfs = sort(abs(cfs)); cfs 29,611
+  val 30,668
+  d 31,685
+  y 32,711
+  figure;33,742
+  figure; clf;33,742
+  figure; clf; imagesc(y); axis equal;33,742
+  figure; clf; imagesc(y); axis equal; axis tight;33,742
+  figure; clf; imagesc(y); axis equal; axis tight; colormap gray;33,742
+  figure; clf; imagesc(y); axis equal; axis tight; colormap gray; colorbar;33,742
+  %wavelet reconstruct36,897
+  [c,37,920
+  cfs 38,959
+  cfs = c(:); cfs 38,959
+  cfs = c(:); cfs = sort(abs(cfs)); cfs 38,959
+  val 39,1016
+  d 40,1033
+  y 41,1059
+  figure;42,1088
+  figure; clf;42,1088
+  figure; clf; imagesc(y); axis equal;42,1088
+  figure; clf; imagesc(y); axis equal; axis tight;42,1088
+  figure; clf; imagesc(y); axis equal; axis tight; colormap gray;42,1088
+  figure; clf; imagesc(y); axis equal; axis tight; colormap gray; colorbar;42,1088
+
+test_wa3.m,1657
+N 3,83
+pat 4,92
+tp 5,103
+z 7,124
+c 8,144
+ns 10,165
+is 12,182
+d 13,191
+nw 14,198
+nb 15,220
+y 17,309
+figure;19,330
+figure; imagesc(squeeze(real(y(:,:,N/2+1)))); colormap(1-gray)19,330
+figure; imagesc(squeeze(real(y(:,:,N/2+1)))); colormap(1-gray); axis equal;19,330
+figure; imagesc(squeeze(real(y(:,:,N/2+1)))); colormap(1-gray); axis equal; axis tight;19,330
+figure;21,475
+figure; imagesc(squeeze(real(y(N/2+1,:,:)))); colormap(1-gray)21,475
+figure; imagesc(squeeze(real(y(N/2+1,:,:)))); colormap(1-gray); axis equal;21,475
+figure; imagesc(squeeze(real(y(N/2+1,:,:)))); colormap(1-gray); axis equal; axis tight;21,475
+figure;23,620
+figure; imagesc(squeeze(real(y(:,N/2+1,:)))); colormap(1-gray)23,620
+figure; imagesc(squeeze(real(y(:,N/2+1,:)))); colormap(1-gray); axis equal;23,620
+figure; imagesc(squeeze(real(y(:,N/2+1,:)))); colormap(1-gray); axis equal; axis tight;23,620
+f 26,766
+figure;27,789
+figure; imagesc(squeeze(sum(abs(f),3))); colormap(1-gray)27,789
+figure; imagesc(squeeze(sum(abs(f),3))); colormap(1-gray); axis equal;27,789
+figure; imagesc(squeeze(sum(abs(f),3))); colormap(1-gray); axis equal; axis tight;27,789
+figure;29,935
+figure; imagesc(squeeze(sum(abs(f),1))); colormap(1-gray)29,935
+figure; imagesc(squeeze(sum(abs(f),1))); colormap(1-gray); axis equal;29,935
+figure; imagesc(squeeze(sum(abs(f),1))); colormap(1-gray); axis equal; axis tight;29,935
+figure;31,1081
+figure; imagesc(squeeze(sum(abs(f),2))); colormap(1-gray)31,1081
+figure; imagesc(squeeze(sum(abs(f),2))); colormap(1-gray); axis equal;31,1081
+figure; imagesc(squeeze(sum(abs(f),2))); colormap(1-gray); axis equal; axis tight;31,1081

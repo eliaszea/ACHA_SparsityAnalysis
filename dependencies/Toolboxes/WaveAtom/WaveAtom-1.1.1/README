@@ -1,0 +1,113 @@
+README
+
+**********************************
+
+1. Introduction
+
+This package is a free collection of Matlab routines for computing
+wave atom transforms in one, two and three dimensions. The
+implementation is described in detail in the following two papers:
+
+(a) L. Demanet, L. Ying, Wave atoms and sparsity of oscillatory
+patterns, to appear in Appl. Comput. Harmon. Anal. 2007.
+
+(b) L. Demanet, L. Ying, Curvelets and wave atoms for mirror-extended
+images, technical report. 2007.
+
+Both of them can be downloaded from www.waveatom.org.
+
+**********************************
+
+2. List of files
+
+Most of the transform functions have two versions: standard and
+symmetric. In the standard version, the coefficients are organized in
+a cell array as described in the papers. In the symmetric version, the
+coefficients are stored in an array. The symmetric version is
+particularly useful for applications like thresholding.
+
+1D wave atom transform
+	fwa1.m - forward transform
+	iwa1.m - inverse transform
+	fwa1sym.m - forward transform, symmetric version
+	iwa1sym.m - inverse transform, symmetric version
+
+2D wave atom transform
+	fwa2.m - forward transform
+	iwa2.m - inverse transform
+	fwa2sym.m - forward transform, symmetric version
+	iwa2sym.m - inverse transform, symmetric version
+
+3D wave atom transform
+	fwa3.m - forward transform
+	iwa3.m - inverse transform
+	fwa3sym.m - forward transform, symmetric version
+	iwa3sym.m - inverse transform, symmetric version
+
+2D mirror-extended wave atom transform
+	mefwa2.m - forward transform
+	meiwa2.m - inverse transform
+	mefwa2sym.m - forward transform, symmetric version
+	meiwa2sym.m - inverse transform, symmetric version
+
+2d mirror-extended curvelet transform
+	mefcv2.m - forward transform
+	meicv2.m - inverse transform
+
+test functions
+	test_wa1.m - display several members of 1D wave atom orthobasis
+	test_wa2.m - display several members of 2D wave atom orthobasis
+	test_wa3.m - display one member of 3D wave atom orthobasis
+	test_wa2_reconstruction.m - partial image reconstruction using wave atoms
+	test_wa2_denoising.m - image denoising  using 2D wave atom frame with hard thresholding and cycle spinning
+	test_mewa2.m - display several 2D mirror-extended wave atoms
+	test_mecv2.m - display several 2D mirror-extended curvelets
+	test_mewa2_reconstruction.m - partial image reconstruction using mirror-extended wave atoms
+	test_mecv2_reconstruction.m - partial image reconstruction using mirror-extended curvelets
+
+internal functions
+	freq_pat.m
+	g.m
+	kf_lf.m
+	kf_rt.m
+	cvwindow.m
+	mescatter.m
+	mecombine.m
+	dct2.m
+	idct2.m
+	
+data files
+	data_fingerprint.jpg - fingerprint image from Chris Brislawn
+	data_seismic.jpg - seismic data from Eric Verschuur and Felix Herrman
+
+**********************************
+
+3. Copyright
+
+Copyright (c) 2007 Lexing Ying and Laurent Demanet
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+ 
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA.
+
+**********************************
+
+4. Contacts
+
+For further information, please contact demanet@gmail.com or
+lexing@math.utexas.edu.
+
+
+
+
