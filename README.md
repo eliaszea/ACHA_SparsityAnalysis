@@ -34,9 +34,7 @@ This is what the Table looks like in the Command Window:
 Folders:    
 
 - 'Datasets':          measured acoustic fields in three rooms[^1]
-- 'Toolboxes':         curvelets, wave atoms, and shearlets 
-
-The curvelet toolbox (CurveLab-2.1.3) is taken from [^2], the wave atoms toolbox (WaveAtom-1.1.1) is taken from [^3], and the shearlet toolbox (Fast Finite Shearlet Transform, FFST) is taken from[^4]. 
+- 'Toolboxes':         curvelets (CurveLab-2.1.3)[^2], wave atoms (WaveAtom-1.1.1)[^3], and shearlets (Fast Finite Shearlet Transform, FFST)[^4]
 
 [^1]: [E. Zea, “Compressed sensing of impulse responses in rooms of unknown properties and contents,” J. Sound Vib. 459, 114871 (2019)](https://doi.org/10.1016/j.jsv.2019.114871).
 [^2]: [E. Candès, L. Demanet, D. Donoho, L. Ying, “Fast Discrete Curvelet Transforms,” Multiscale Modeling & Simulation 5(3), 861–899 (2006)](https://doi.org/10.1137/05064182X).
