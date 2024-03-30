@@ -61,11 +61,11 @@ S = 2; % integer between [2,4] — otherwise, some systems do not work!
 % sampling parameters and 2D space-time coordinates
 N = 100;
 N_max = 2e4; % limit to 20.000 largest coefficients
-T = N;
-M = N;
-dx = 0.03;
-fs = 11250;
-x = linspace(-M*dx/2,M*dx/2,M);
+T = N;    % no. time samples
+M = N;    % no. mic positions
+dx = 0.03;   % mic spacing (m)
+fs = 11250;   % sampling frequency (Hz)
+x = linspace(-M*dx/2,M*dx/2,M);    % x-axis coordinates
 
 % Preallocate arrays to store l1-norm results
 l1_norms = zeros(length(T_start), 6); % 6 decomposition methods
@@ -301,12 +301,10 @@ function [Ad,Th] = computeDiffeo(OM,KX,far_or_near)
 if ~far_or_near
     % move Cartesian grid to diffeomorphic (wavelet) space
     Ad = sqrt(OM.^2-KX.^2); Ad = Ad(:);
-    %Th = atanh(KX.^2./OM.^2); Th = Th(:);
     Th = atanh(KX./OM); Th = Th(:);
 else
     % move Cartesian grid to diffeomorphic (wavelet) space
     Ad = sqrt(KX.^2-OM.^2); Ad = Ad(:);
-    %Th = atanh(OM.^2./KX.^2); Th = Th(:);
     Th = atanh(OM./KX); Th = Th(:);
 end
 end
